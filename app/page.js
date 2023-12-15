@@ -16,9 +16,6 @@ const Home = async () => {
                                 width={16}
                                 height={16}
                             />
-                            <span className="text-xs" style={{fontFamily: "Vazirmatn, sans-serif;"}}>
-                                معلومه که با وی پی ان کار میکنه
-                            </span>
                         </p>
                         <h1 className="head-text">
                             give me a

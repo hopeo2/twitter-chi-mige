@@ -2,13 +2,14 @@
 
 import { scrapeAndStoreProduct } from "@/lib/actions/index.jsx";
 import { FormEvent, useState } from "react";
+import Image from "next/image";
 
 const Searchbar = () => {
     const [arr, setArray] = useState([]);
     const [searchPrompt, setSearchPrompt] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
-    let urlsearch = `https://nitter.net/${searchPrompt}/search?f=tweets&q=&e-media=on&e-replies=on&since=&until=&near=`;
+    let urlsearch = `https://nitter.net/${searchPrompt}/with_replies`;
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -25,7 +26,7 @@ const Searchbar = () => {
             setIsLoading(false);
         }
     };
-
+    const image = `https://nitter.net${arr.proflink}`;
     return (
         <>
             <form
@@ -50,6 +51,14 @@ const Searchbar = () => {
             </form>
             {arr.cleanText && (
                 <div className="tweets">
+                    <h2>fullName={arr.acname}</h2>
+                    <Image
+                        src={image}
+                        width={250}
+                        height={250}
+                        alt="Picture of the account"
+                        className="rounded-full"
+                    />
                     {arr.cleanText}
                 </div>
             )}
