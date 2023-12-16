@@ -1,6 +1,6 @@
 "use client";
 
-import { scrapeAndStoreProduct } from "@/lib/actions/index.jsx";
+import { scrapeAndStoreTweets } from "@/lib/actions/index.jsx";
 import { FormEvent, useState } from "react";
 import Image from "next/image";
 
@@ -18,7 +18,7 @@ const Searchbar = () => {
             setIsLoading(true);
 
             //scrape
-            const product = await scrapeAndStoreProduct(urlsearch);
+            const product = await scrapeAndStoreTweets(urlsearch);
             setArray(product);
         } catch (error) {
             console.log(error);

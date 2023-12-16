@@ -3,7 +3,7 @@ import { JSDOM } from "jsdom";
 import * as cheerio from "cheerio"
 
 
-export async function scrapeAmazonProduct(url) {
+export async function scrapeTweets(url) {
     if (!url) return;
 
     try {
